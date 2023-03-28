@@ -1,17 +1,47 @@
 /* Fonts  */
 
-@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap');
-/* font-family: 'Charm', cursive;  */
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Quicksand:wght@400;500&display=swap');
+/* font-family: 'Charm', cursive;
+font-family: 'Quicksand', sans-serif; */
+
+
+/* Colors  */
+
 /* neon-green: #1cff6f  */
+/* neon-blue: #75FBFD  */
+
+
+
+/* css variables in html:root element  */
+
+:root {
+    --font-quicksand: 'Quicksand', sans-serif;
+    --color-neon-blue: #75FBFD;
+}
+
+html::-webkit-scrollbar {
+    width: 1vw;
+}
+html::-webkit-scrollbar-track {
+    background-color:rgba(50, 50, 50, 0.8);
+}
+html::-webkit-scrollbar-thumb {
+    background-color: rgba(75, 251, 253, 0.4);
+    border-radius: 0.1em;
+}
+html::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(75, 251, 253, 0.7);
+}
 
 
 
 
-
+/* mobile-screen : width < 700px;  */
 
 * {
     box-sizing: border-box;
 }
+
 
 body {
     background-color: black;
@@ -91,7 +121,7 @@ body {
     align-items: center;
     padding: 0;
     border: none;
-    margin-top: -0.5rem;
+    margin-top: -0.4rem;
     margin-right: 1rem;
     background: none;
     justify-self: flex-end;
@@ -142,25 +172,25 @@ body {
 }
 
 .sec-links a {
+    font-family: var(--font-quicksand);
     text-decoration: none;
-    color: white;
+    color: var(--color-neon-blue, white);
     font-size: 2rem;
     margin-bottom: 5em;
 }
 
 .sec-links a:hover {
     background-color: rgba(50, 50, 50, 0.9);
-    transform: translate(100px, 100px);
     padding: 0.001em 0.2em;
     border: 0.1px solid white;
     border-radius: 0.3em;
 }
 
-/* Content  */
+/* Main  */
 
 .content {
-    width: vw;
-    min-height: 20rem;
+    width: 100%;
+    min-height: 100vh;
     background: black;
     color: white;
 }
@@ -175,4 +205,56 @@ body {
 p {
     color: white;
     font-size: 3rem;
+}
+
+/* Footer  */
+footer {
+    width: 100%;
+    height: 2rem;
+    background-color: #303030;
+    border-top: 1px solid white;
+}
+
+
+/* wider screens: width > 700px  */
+
+
+@media (min-width: 700px) {
+    
+    .x-span, .hamburger {
+        display: none;
+    }
+
+    .nav-links {
+        width: unset;
+        align-items: center;
+        margin-top: 0.8rem;
+    }
+
+    .flex-links-container > ul {
+        flex-direction: row;
+        justify-content: space-between;
+        /* align-items: center; */
+    }
+    .sec-links a {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        margin-right: 1em;
+        border: 0;
+        border-bottom: 0px;
+    }
+
+    .sec-links a:hover {
+        background-color: black;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid var(--color-neon-blue);
+        /* animation-name: hover-border;
+        animation-duration: 1s; */
+    }
+
+    .sec-fill {
+        height: 54.400px;
+    }
 }
