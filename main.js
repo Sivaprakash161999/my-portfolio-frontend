@@ -18,6 +18,18 @@ function displayChange(mq2) {
     }
 }
 
+if (matchMedia) {
+    const mq3 = window.matchMedia("(max-width: 700px)");
+    mq3.addListener(displayChange2);
+    displayChange2(mq3);
+}
+
+function displayChange2(mq3) {
+    if (mq3.matches) {
+        navLinksContainer.style.display = "none";
+    }
+}
+
 hamBtn.addEventListener("click", e => {
     hamBtn.style.display = "none";
     navLinksContainer.style.display = "flex";
